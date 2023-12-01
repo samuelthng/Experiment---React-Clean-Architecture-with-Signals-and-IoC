@@ -1,5 +1,21 @@
 {
   "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
   "plugins": ["react", "react-hooks"],
-  "parser": "@typescript-eslint/parser"
+  "parser": "@typescript-eslint/parser",
+  "env": {
+    "jest": true,
+    "browser": true,
+    "node": true
+  },
+  "overrides": [
+    {
+      "files": ["*.test.(j|t)sx?", "jest.setup.js"],
+      "plugins": ["jest", "jest-dom", "testing-library"],
+      "extends": [
+        "plugin:jest/recommended",
+        "plugin:jest-dom/recommended",
+        "plugin:testing-library/react"
+      ]
+    }
+  ]
 }

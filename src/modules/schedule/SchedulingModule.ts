@@ -11,15 +11,15 @@ const modules = {
   SCHEDULED: new ScheduledModule(),
 };
 
-const scheduleTypeValidator = (value: any) => {
-  if (!Object.keys(modules).includes(value))
+const scheduleTypeValidator = (value: unknown) => {
+  if (!Object.keys(modules).includes(value as string))
     throw new Error(
       `Unknown type. Available types: ${Object.keys(modules).join(" | ")}`,
     );
   return true;
 };
 
-const scheduleTypeField = new GenericField(
+const scheduleTypeField = new GenericField<string>(
   "SCHEDULED",
   true,
   scheduleTypeValidator,

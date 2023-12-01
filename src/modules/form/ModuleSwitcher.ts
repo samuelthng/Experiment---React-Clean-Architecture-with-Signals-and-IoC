@@ -5,14 +5,17 @@ import FormModule, { FormFields } from "./FormModule";
 type ModuleMap = Record<string, FormModule>;
 
 /** Class to dynamically switch between form modules based on a field value. */
-export default class ModuleSwitcher<T extends ModuleMap> extends FormModule {
+export default class ModuleSwitcher<
+  S extends string,
+  T extends ModuleMap,
+> extends FormModule {
   public selectorName: string;
   public selector: FormFields;
   public modules: T;
-  private _selectorValue: Signal<string>;
+  private _selectorValue: Signal<S>;
   private _fields: Signal<FormFields>;
 
-  constructor(selectorName: string, selectorField: FormField<any>, modules: T) {
+  constructor(selectorName: string, selectorField: FormField<S>, modules: T) {
     super();
     this.selectorName = selectorName;
     this.selector = { [selectorName]: selectorField };
@@ -35,9 +38,9 @@ export default class ModuleSwitcher<T extends ModuleMap> extends FormModule {
     if (!value) return;
     if (this.modules[value] === undefined)
       throw new Error(
-        `Invalid selector value of ${value}. Expected one of ${Object.keys(
-          this.modules,
-        ).join(" | ")}`,
+        `Invalid selector value of ${String(
+          value,
+        )}. Expected one of ${Object.keys(this.modules).join(" | ")}`,
       );
     this.selector[this.selectorName].value = value;
   }

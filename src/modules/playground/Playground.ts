@@ -1,14 +1,14 @@
 import { batch, effect, signal } from "@preact/signals-react";
 
-const mockFetchNumber = (delay: number = 500) =>
+const mockFetchNumber = (delay = 500) =>
   new Promise<number>((resolve) =>
-    setTimeout(() => resolve(Math.random()), delay)
+    setTimeout(() => resolve(Math.random()), delay),
   );
 
 const initialState = {
   someSignal: 0,
   loading: false,
-  numberList: [123]
+  numberList: [123],
 };
 
 export default class Playground {
@@ -29,7 +29,7 @@ export default class Playground {
     // Has to be new array - changes detected by reference.
     Playground.numberList.value = [
       ...Playground.numberList.value,
-      Math.random()
+      Math.random(),
     ];
     effect(() => console.log(Playground.numberList.value));
   }

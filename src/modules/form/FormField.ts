@@ -12,7 +12,7 @@ export type FieldValidator<T, V extends FormField<T>> = {
 
 const requiredValidator = (value, field) => {
   if (!field.required) return true;
-  return !["", null, undefined, NaN].includes(value as any);
+  return !["", null, undefined, NaN].includes(value as string | number);
 };
 
 /** Base class to describe a form field. */

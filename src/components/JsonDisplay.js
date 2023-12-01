@@ -1,15 +1,14 @@
-import { useRef } from "react";
+import useRenderCount from "../hooks/useRenderCount";
 
 export default function JsonDisplay({ label, data }) {
-  const renderRef = useRef(0);
-  renderRef.current++;
+  const renderCount = useRenderCount();
   return (
     <pre
       style={{
         padding: "0.5rem",
         backgroundColor: "rgba(0,0,0,0.1)",
         borderRadius: "0.25rem",
-        textAlign: "justify"
+        textAlign: "justify",
       }}
     >
       <code>
@@ -17,7 +16,7 @@ export default function JsonDisplay({ label, data }) {
         {JSON.stringify(data, null, 2)}
       </code>
       <p>
-        <code>JsonDisplay rendered {renderRef.current}×</code>
+        <code>JsonDisplay rendered {renderCount}×</code>
       </p>
     </pre>
   );

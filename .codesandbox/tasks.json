@@ -6,7 +6,6 @@
       "command": "npm install"
     }
   ],
-
   // These tasks can be run from CodeSandbox. Running one will open a log in the app.
   "tasks": {
     "start": {
@@ -19,18 +18,15 @@
     },
     "build": {
       "name": "build",
-      "command": "npm build",
-      "runAtStart": false
+      "command": "npm build"
     },
     "test": {
       "name": "test",
-      "command": "npm test",
-      "runAtStart": false
+      "command": "npm test"
     },
     "eject": {
       "name": "eject",
-      "command": "npm eject",
-      "runAtStart": false
+      "command": "yarn eject"
     }
   }
 }

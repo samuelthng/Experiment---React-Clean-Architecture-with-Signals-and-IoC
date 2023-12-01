@@ -1,11 +1,10 @@
-import { useRef } from "react";
-import formManager from "../modules/form";
+import form from "../modules/form";
 import SimpleInput from "./SimpleInput";
 import { computed } from "@preact/signals-react";
+import useRenderCount from "../hooks/useRenderCount";
 
-export default function FormComponent({ modules }) {
-  const renderRef = useRef(0);
-  renderRef.current++;
+export default function FormComponent({ modules = form.modules.value }) {
+  const renderCount = useRenderCount();
   return (
     <div
       style={{
@@ -13,10 +12,10 @@ export default function FormComponent({ modules }) {
         gap: "0.5rem",
         backgroundColor: "rgba(0,0,0,0.075)",
         padding: "0.5rem",
-        borderRadius: "0.5rem"
+        borderRadius: "0.5rem",
       }}
     >
-      {Object.entries(formManager.modules.value).map(([moduleName, module]) => (
+      {Object.entries(modules).map(([moduleName, module]) => (
         <div
           key={moduleName}
           style={{
@@ -24,7 +23,7 @@ export default function FormComponent({ modules }) {
             gap: "0.5rem",
             backgroundColor: "rgba(0,0,0,0.075)",
             padding: "0.5rem",
-            borderRadius: "0.5rem"
+            borderRadius: "0.5rem",
           }}
         >
           <h3>Module: {moduleName}</h3>
@@ -41,7 +40,7 @@ export default function FormComponent({ modules }) {
           ))}
         </div>
       ))}
-      <code>Form Module rendered {renderRef.current}×</code>
+      <code>Form Module rendered {renderCount}×</code>
     </div>
   );
 }

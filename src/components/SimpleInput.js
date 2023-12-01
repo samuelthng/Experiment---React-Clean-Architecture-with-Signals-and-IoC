@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import useRenderCount from "../hooks/useRenderCount";
 
 export default function SimpleInput({
   label,
@@ -6,16 +6,15 @@ export default function SimpleInput({
   onChange,
   required,
   errorMessage,
-  disabled
+  disabled,
 }) {
-  const renderRef = useRef(0);
-  renderRef.current++;
+  const renderCount = useRenderCount();
   return (
     <div
       style={{
         padding: "0.5rem",
         backgroundColor: "rgba(0,0,0,0.075)",
-        borderRadius: "0.5rem"
+        borderRadius: "0.5rem",
       }}
     >
       <label htmlFor={label}>
@@ -35,7 +34,7 @@ export default function SimpleInput({
         <code style={{ display: "block", color: "red" }}>{errorMessage}</code>
       )}
       <code style={{ display: "block" }}>
-        "{label}" rendered {renderRef.current}×
+        "{label}" rendered {renderCount}×
       </code>
     </div>
   );
