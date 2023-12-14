@@ -43,12 +43,12 @@ export default class Playground {
   }
 
   public static increment() {
-    Playground.someSignal.value++;
+    Playground.someSignal.value = Math.ceil(Playground.someSignal.value + 1);
     return Playground.someSignal.value;
   }
 
   public static decrement() {
-    Playground.someSignal.value--;
+    Playground.someSignal.value = Math.floor(Playground.someSignal.value - 1);
     return Playground.someSignal.value;
   }
 

@@ -1,17 +1,17 @@
-import form from "../modules/form";
+import form from "../modules/signalsPrimitiveTest/form";
 import JsonDisplay from "../components/JsonDisplay";
 import FormComponent from "../components/FormComponent";
 import useRenderCount from "../hooks/useRenderCount";
 
 // Modules made before DI setup. soo it's ugly. I know.
-import "../modules/location";
-import "../modules/schedule";
+import "../modules/signalsPrimitiveTest/location";
+import "../modules/signalsPrimitiveTest/schedule";
 
 export default function SignalForm() {
   const renderCount = useRenderCount();
   return (
     <main>
-      <h1>Signals + With Classes in Form Context</h1>
+      <h1>Signals + With Classes for Form Context</h1>
       <VerboseComments />
       <hr />
       Root has rendered {renderCount} times.

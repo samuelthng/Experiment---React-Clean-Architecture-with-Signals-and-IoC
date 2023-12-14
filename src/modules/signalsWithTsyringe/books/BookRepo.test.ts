@@ -1,5 +1,6 @@
 import BookRepo from "./BookRepo";
 
+/** Showcase basic unit testing. */
 describe("BookRepo", () => {
   it("should add and remove data", () => {
     const bookRepo = new BookRepo();

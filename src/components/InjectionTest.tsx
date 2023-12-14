@@ -1,5 +1,5 @@
 import { container } from "tsyringe";
-import { BookService } from "../modules/books/BookService";
+import { BookService } from "../modules/signalsWithTsyringe/books/BookService";
 
 // Use instance in React.
 export default function InjectionTest({

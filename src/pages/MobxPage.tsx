@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react-lite';
-import Todo from '../modules/todo/todo';
+import Todo from '../modules/mobx/todo';
 
 const myTodo = new Todo('My Todo');
 

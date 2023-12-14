@@ -1,4 +1,4 @@
-import form from "../modules/form";
+import form from "../modules/signalsPrimitiveTest/form";
 import SimpleInput from "./SimpleInput";
 import { computed } from "@preact/signals-react";
 import useRenderCount from "../hooks/useRenderCount";

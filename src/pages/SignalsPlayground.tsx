@@ -1,4 +1,4 @@
-import Playground from "../modules/playground";
+import Playground from "../modules/signalsPlayground";
 
 export default function SignalsPlayground({
   // Easily use values in prop, making components testable.
